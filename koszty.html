@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montaż paneli podłogowych</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <script>
+        function oblicz()
+        {
+            var cena = 0;
+            var szerokosc = document.getElementById("szerokosc").value;
+            var dlugosc = document.getElementById("dlugosc").value;
+            const laminowane = document.getElementById("laminowane").checked;
+            const winylowe = document.getElementById("winylowe").checked;
+            const deska = document.getElementById("deska").checked;
+
+            var pole = szerokosc*dlugosc;
+
+            if (laminowane) cena += 12;
+            if (winylowe) cena += 14;
+            if (deska) cena += 18;
+
+            var kwota = cena*pole;
+
+            if (szerokosc>0 && dlugosc>0)
+            {
+                document.getElementById("wynik").innerHTML="Pole powierzchni pomieszczenia: "+pole+", koszt montażu "+kwota;
+            }
+            else
+            {
+                document.getElementById("wynik").innerHTML="Wprowadź poprawne dane.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="montaz_paneli.png" alt="firma usługowa">
+    </header>
+    <nav>
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="koszty.html">Kalkulator kosztów</a>
+    </nav>
+    <main>
+        <h1>Kalkulator kosztów montażu</h1>
+        <label for="szerokosc">Szerokość pomieszczenia [m]:</label>
+        <input type="number" id="szerokosc">
+        <label for="dlugosc">Długość pomieszczenia [m]:</label>
+        <input type="number" id="dlugosc">
+        <p>Typ panelu</p>
+        <input type="radio" id="laminowane" name="panel">
+        <label for="laminowane">Panele laminowane</label>
+        <br>
+        <input type="radio" id="winylowe" name="panel">
+        <label for="winylowe">Panele winylowe</label>
+        <br>
+        <input type="radio" id="deska" name="panel">
+        <label for="deska">Deska podłogowa</label>
+        <br>
+        <input type="button" value="Oblicz" onclick="oblicz()">
+        <p id="wynik"></p>
+    </main>
+    <footer>
+        <h5>Autor strony: 00000000000</h5>
+    </footer>
+</body>
+</html>
