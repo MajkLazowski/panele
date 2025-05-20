@@ -23,7 +23,7 @@
 
             var kwota = cena*pole;
 
-            if (szerokosc>0 && dlugosc>0)
+            if (szerokosc>0 && dlugosc>0 && laminowane || winylowe || deska)
             {
                 document.getElementById("wynik").innerHTML="Pole powierzchni pomieszczenia: "+pole+", koszt montażu "+kwota;
             }
